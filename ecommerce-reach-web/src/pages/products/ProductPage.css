@@ -1,0 +1,25 @@
+.frm_product{
+    border: 2px grey solid;
+    padding: 25px;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 500px;
+}
+.frm_item{
+    color: black;
+    font-size: 25px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.input{
+    padding: 10px;
+    font-size: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.tbnAdd{
+    font-size: 18px;
+    color: white;
+    background-color: black;
+    padding: 10px 65px;
+}

@@ -1,0 +1,114 @@
+==== Computer Shop ====
+
+user 
+    user_id PK
+    firstname
+    lastname
+    gender
+    username : // tel
+    password
+    image
+    status
+    create_at
+
+customer 
+    customer_id PK
+    firstname
+    lastname
+    gender
+    username : // tel
+    password
+    create_at
+
+address
+    address_id PK
+    customer_id FK
+    province_id FK
+    firstname
+    lastname
+    tell
+    email
+    address_des
+    create_at
+
+province
+    product_id
+    name
+    description
+    date_modified
+    create_at
+
+catergory
+    category_id PK
+    name
+    description
+    parent_id
+    image
+    order_number
+    create_at
+    create_by
+
+product
+    product_id PK
+    category_id FK
+    name
+    price
+    quantity
+    image
+    description
+    status
+    create_at
+    create_by
+
+product_image
+    product_image_id PK
+    product_id FK
+    image
+    order_number
+
+cart 
+    card_id PK
+    customer_id FK
+    product_id FK
+    quantity
+    create_at
+
+order
+    order_id PK
+    customer_id FK
+    total_order
+    comment
+    payment_method
+    payment_date
+    address_id
+    order_status
+    create_at
+
+order_product
+    order_product_id PK 
+    order_id FK 
+    product_id
+    name 
+    price 
+    quantity
+    total
+
+payment_method 
+    payment_method_id
+    name 
+    code 
+    image
+    description
+
+order_status
+    pedding
+    packed
+    deliver
+    cancel 
+    phone die 
+    complete
+
+
+
+
+
