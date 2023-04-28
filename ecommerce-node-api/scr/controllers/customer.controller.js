@@ -1,8 +1,5 @@
-
-
 const db = require("../config/db.config");
 const { Config } = require("../util/service");
-
 
 //create function
 const getList = (req, res) => {

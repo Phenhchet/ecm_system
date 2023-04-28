@@ -1,11 +1,11 @@
 const contrl = require("../controllers/category.controller")
 
 const category = (app) => {
-    app.get("/api/category/get-list", contrl.getList)
-    app.get("/api/category/get-one/:id", contrl.getOne)
-    app.post("/api/category/create", contrl.create)
-    app.put("/api/category/update", contrl.update)
-    app.delete("/api/category/remove/:id", contrl.remove)
+    app.get("/", contrl.getList)
+    app.get("/:id", contrl.getOne)
+    app.post("/", contrl.create)
+    app.put("/", contrl.update)
+    app.delete("/:id", contrl.remove)
 }
 
 module.exports = category

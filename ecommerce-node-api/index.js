@@ -16,14 +16,14 @@ app.use(cors({
 }))
 
 //request to access customer.route.js
-require("./scr/routes/customer.route")(app)
-require("./scr/routes/user.route")(app)
-require("./scr/routes/category.route")(app)
-require("./scr/routes/address.route")(app)
-require("./scr/routes/cart.route")(app)
-require("./scr/routes/order.route")(app)
-require("./scr/routes/product.route")(app)
-require("./scr/routes/wishlist.route")(app)
+// require("./scr/routes/customer.route")(app)
+// require("./scr/routes/user.route")(app)
+// require("./scr/routes/category.route")(app)
+// require("./scr/routes/address.route")(app)
+// require("./scr/routes/cart.route")(app)
+// require("./scr/routes/order.route")(app)
+// require("./scr/routes/product.route")(app)
+require("./scr/routes/index.js")(app)
 
 
 
