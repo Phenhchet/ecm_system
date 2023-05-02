@@ -176,20 +176,19 @@ const CustomerPage = () => {
         ClearForm()
     }
     const handleSubmit = () => {
+        const data = {
+            "firstname": firstname,
+            "lastname": lastname,
+            "gender": gender,
+            "dob": dayjs(dob).format("YYYY-MM-DD"),
+            "tel": tel,
+            "email": email,
+            "is_active": isActive
+        }
         setLoading(true)
         if (customerID == null) {
-
-            request("post", "customer/create", {
-                "firstname": firstname,
-                "lastname": lastname,
-                "gender": gender,
-                "dob": dayjs(dob).format("YYYY-MM-DD"),
-                "tel": tel,
-                "email": email,
-                "is_active": isActive
-            }).then(res => {
+            request("post", "customer/create", data).then(res => {
                 getList()
-                setLoading(false)
                 setTimeout(() => {
                     message.success('Customer Create successfull')
                 }, 500);
@@ -197,23 +196,13 @@ const CustomerPage = () => {
                 setVisibleModal(false)
             }).catch(err => {
                 console.log(err)
-            })
-
-
-        } else {
-            setLoading(true)
-            request("put", "customer/update", {
-                "customer_id": customerID,
-                "firstname": firstname,
-                "lastname": lastname,
-                "gender": gender,
-                "dob": dayjs(dob).format("YYYY-MM-DD"),
-                "tel": tel,
-                "email": email,
-                "is_active": isActive
-            }).then(res => {
-                getList()
+            }).finally(() => {
                 setLoading(false)
+              });
+        } else {
+            data.customer_id = customerID
+            request("put", "customer/update", data).then(res => {
+                getList()
                 setTimeout(() => {
                     message.success('Customer Update successfull')
                 }, 500);
@@ -221,7 +210,9 @@ const CustomerPage = () => {
                 setVisibleModal(false)
             }).catch(err => {
                 console.log(err)
-            })
+            }).finally(() => {
+                setLoading(false)
+              });
         }
     }
     const ClearForm = () => {
